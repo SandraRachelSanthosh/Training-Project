@@ -44,23 +44,23 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{userid}")
-    private void deleteUser(@PathVariable("userid") int bookid)
+    private void deleteUser(@PathVariable("userid") int userid)
     {
-        userService.delete(bookid);
+        userService.delete(userid);
     }
 
 
     @PostMapping("/users")
-    private int saveUser(@RequestBody User users)
+    private int saveUser(@RequestBody User user)
     {
-        userService.saveOrUpdate(users);
-        return users.getUserId();
+        userService.saveOrUpdate(user);
+        return user.getUserId();
     }
 
     @PutMapping("/users")
-    private User update(@RequestBody User users)
+    private User update(@RequestBody User user)
     {
-        userService.saveOrUpdate(users);
-        return users;
+        userService.saveOrUpdate(user);
+        return user;
     }
 }
