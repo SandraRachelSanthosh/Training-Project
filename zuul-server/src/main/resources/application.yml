@@ -18,3 +18,11 @@ zuul:
       path: /user/**
       serviceId: user-microservice
       stripPrefix: true
+    task-service:
+      path: /task/**
+      serviceId: task-microservice
+      stripPrefix: true
+    project-service:
+      path: /project/**
+      serviceId: project-microservice
+      stripPrefix: true

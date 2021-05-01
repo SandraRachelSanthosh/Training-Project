@@ -1,10 +1,12 @@
 spring:
   application:
-    name: user-microservice
+    name: project-microservice
   datasource:
-    url: jdbc:h2:file:~/userdb
+    url: jdbc:h2:file:~/proj
+    username: sa
+    password: password
 server:
-  port: 8002
+  port: 8004
 eureka:
   client:
     serviceUrl:
