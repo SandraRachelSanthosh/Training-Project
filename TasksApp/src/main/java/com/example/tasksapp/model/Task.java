@@ -2,10 +2,7 @@ package com.example.tasksapp.model;
 
 import com.sun.javafx.beans.IDProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -13,28 +10,32 @@ public class Task {
 
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int taskId;
     @Column
     private String startDate;
     @Column
     private String endDate;
     @Column
-    private String taskOwner;
+    private int taskOwner;
     @Column
-    private String parentTask;
+    private int parentTask;
     @Column
     private int priority;
+    @Column
+    private String taskStatus;
 
     public Task() {
     }
 
-    public Task(int taskId, String startDate, String endDate, String taskOwner, String parentTask, int priority) {
+    public Task(int taskId, String startDate, String endDate, int taskOwner, int parentTask, int priority,String taskStatus) {
         this.taskId = taskId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.taskOwner = taskOwner;
         this.parentTask = parentTask;
         this.priority = priority;
+        this.taskStatus = taskStatus;
     }
 
     public int getTaskId() {
@@ -61,19 +62,19 @@ public class Task {
         this.endDate = endDate;
     }
 
-    public String getTaskOwner() {
+    public int getTaskOwner() {
         return taskOwner;
     }
 
-    public void setTaskOwner(String taskOwner) {
+    public void setTaskOwner( int taskOwner) {
         this.taskOwner = taskOwner;
     }
 
-    public String getParentTask() {
+    public int getParentTask() {
         return parentTask;
     }
 
-    public void setParentTask(String parentTask) {
+    public void setParentTask(int parentTask) {
         this.parentTask = parentTask;
     }
 
@@ -83,5 +84,13 @@ public class Task {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    public String getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus = taskStatus;
     }
 }
